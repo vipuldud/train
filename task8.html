@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train Animation</title>
+  <style>
+    .train {
+      position: relative;
+      width: 500px;
+      height: 250px;
+      background-color: #ccc;
+      background-image: url('imgg.png')
+      border-radius: 10px;
+      animation: trainMovement 4s infinite linear;
+    }
+    
+    @keyframes trainMovement {
+      0% {
+        left: 0;
+      }
+      100% {
+        left: calc(100% - 200px);
+      }
+    }
+    
+    .btn-container {
+      margin-top: 20px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    
+  <div style="background-image: url('imgg.png');" class="train"></div>
+  <div class="btn-container">
+    <button class="btn" id="startBtn">Start</button>
+    <button class="btn" id="stopBtn">Stop</button>
+  </div>
+
+  <script>
+    var train = document.querySelector('.train');
+    var startBtn = document.getElementById('startBtn');
+    var stopBtn = document.getElementById('stopBtn');
+    
+    startBtn.addEventListener('click', function() {
+      train.style.animationPlayState = 'running';
+    });
+    
+    stopBtn.addEventListener('click', function() {
+      train.style.animationPlayState = 'paused';
+    });
+    
+    train.style.animationPlayState = 'paused'; // Initially set the animation to paused state
+  </script>
+</body>
+</html>
